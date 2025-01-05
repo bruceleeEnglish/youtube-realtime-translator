@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube实时同声传译",
+  "version": "1.0",
+  "description": "在YouTube视频播放时提供实时同声传译功能",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*.youtube.com/*",
+    "https://libretranslate.de/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ]
+} 

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 400px;
+      padding: 15px;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .form-group label {
+      font-weight: bold;
+      color: #333;
+    }
+    select, input, button {
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      width: 100%;
+    }
+    .api-key {
+      font-family: monospace;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .status {
+      padding: 10px;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+    .example {
+      font-size: 12px;
+      color: #666;
+      margin-top: 4px;
+    }
+    .separator {
+      border-top: 1px solid #ddd;
+      margin: 15px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>YouTube实时同声传译</h2>
+    
+    <!-- API配置部分 -->
+    <div class="form-group">
+      <label for="deepseekApiKey">DeepSeek API密钥:</label>
+      <input type="password" id="deepseekApiKey" class="api-key" placeholder="sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+      <div class="example">示例: sk-xxxx...（在DeepSeek平台获取）</div>
+    </div>
+
+    <div class="form-group">
+      <label for="deeplxApi">DeepLX API地址:</label>
+      <input type="text" id="deeplxApi" placeholder="https://your-deeplx-api-url">
+      <div class="example">示例: https://api.example.com/translate（填写您的DeepLX API地址）</div>
+    </div>
+
+    <div class="separator"></div>
+
+    <!-- 翻译设置部分 -->
+    <div class="form-group">
+      <label for="targetLang">目标语言：</label>
+      <select id="targetLang">
+        <option value="zh">中文</option>
+        <option value="en">英语</option>
+        <option value="ja">日语</option>
+      </select>
+    </div>
+
+    <button id="saveConfig">保存配置</button>
+    <button id="toggleTranslation">开启同声传译</button>
+    <div id="status" class="status"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html> 
